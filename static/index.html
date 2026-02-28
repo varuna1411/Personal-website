@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Varun Amin | Writer · Traveler · Creator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside class="site-sidebar" aria-label="Main navigation">
+    <a href="index.html" class="site-title site-title-with-logo">
+      <img src="logo.png" alt="" class="sidebar-logo" width="40" height="40" onerror="this.style.display='none'">
+      <span>Varun Amin</span>
+    </a>
+    <nav class="sidebar-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="travel.html">Travel Portfolio</a></li>
+        <li><a href="https://aminmyhead.substack.com/" target="_blank" rel="noopener">Blog</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <div class="page-wrap">
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <p class="site-title"><a href="index.html">Varun Amin</a></p>
+      <button type="button" class="menu-toggle" aria-expanded="false" aria-label="Toggle menu" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="travel.html">Travel Portfolio</a></li>
+        <li><a href="https://aminmyhead.substack.com/" target="_blank" rel="noopener">Blog</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1 class="font-display"><span>Varun</span><span>Amin</span></h1>
+      <p class="tagline">Writer · Traveler · Martial Artist · Mentor</p>
+      <a href="about.html" class="cta">Get to know me</a>
+    </section>
+
+    <div class="ticker-wrap">
+      <div class="ticker">
+        <span>Writer</span><span class="sep">·</span>
+        <span>Traveler</span><span class="sep">·</span>
+        <span>Martial Artist</span><span class="sep">·</span>
+        <span>Mentor</span><span class="sep">·</span>
+        <span>Photographer</span><span class="sep">·</span>
+        <span>Storyteller</span><span class="sep">·</span>
+        <span>Writer</span><span class="sep">·</span>
+        <span>Traveler</span><span class="sep">·</span>
+        <span>Martial Artist</span><span class="sep">·</span>
+        <span>Mentor</span><span class="sep">·</span>
+        <span>Photographer</span><span class="sep">·</span>
+        <span>Storyteller</span>
+      </div>
+    </div>
+
+    <section class="section container">
+      <div class="intro-grid">
+        <div class="intro-photo">
+          <img src="https://picsum.photos/seed/portrait/800/1000" alt="">
+        </div>
+        <div>
+          <p class="intro-text">
+            I'm a writer and traveler who believes the best stories come from paying attention — to places, people, and the small moments in between. When I'm not on the road or at the keyboard, I train martial arts and mentor others who want to live with more intention.
+          </p>
+          <a href="about.html" class="intro-link">Read my full story →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-border">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title font-display">Latest from the Blog</h2>
+          <a href="https://aminmyhead.substack.com/" target="_blank" rel="noopener" class="view-all">View all</a>
+        </div>
+        <div id="substack-home-preview" class="cards-grid">
+          <a href="https://aminmyhead.substack.com/" target="_blank" rel="noopener" class="card-link">
+            <div class="card-image"><img src="https://picsum.photos/seed/blog1/800/500" alt=""></div>
+            <h3 class="card-title font-display">Latest on Substack</h3>
+            <p class="card-excerpt">Loading posts from Amin My Head…</p>
+          </a>
+          <a href="https://aminmyhead.substack.com/" target="_blank" rel="noopener" class="card-link">
+            <div class="card-image"><img src="https://picsum.photos/seed/blog2/800/500" alt=""></div>
+            <h3 class="card-title font-display">Amin My Head</h3>
+            <p class="card-excerpt">Productivity, technology, careers, and life.</p>
+          </a>
+          <a href="https://aminmyhead.substack.com/" target="_blank" rel="noopener" class="card-link">
+            <div class="card-image"><img src="https://picsum.photos/seed/blog3/800/500" alt=""></div>
+            <h3 class="card-title font-display">Subscribe</h3>
+            <p class="card-excerpt">Get new posts delivered to your inbox.</p>
+          </a>
+        </div>
+        <div class="view-all-mobile"><a href="https://aminmyhead.substack.com/" target="_blank" rel="noopener">View all posts →</a></div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="section-header">
+        <h2 class="section-title font-display">Travel Portfolio</h2>
+        <a href="travel.html" class="view-all">See all</a>
+      </div>
+      <div class="travel-grid">
+        <div class="travel-card">
+          <a href="travel.html">
+            <img src="https://picsum.photos/seed/travel1/600/400" alt="">
+            <div class="overlay"><span class="location font-display">Japan</span></div>
+          </a>
+        </div>
+        <div class="travel-card">
+          <a href="travel.html">
+            <img src="https://picsum.photos/seed/travel2/600/400" alt="">
+            <div class="overlay"><span class="location font-display">Iceland</span></div>
+          </a>
+        </div>
+        <div class="travel-card">
+          <a href="travel.html">
+            <img src="https://picsum.photos/seed/travel3/600/400" alt="">
+            <div class="overlay"><span class="location font-display">Portugal</span></div>
+          </a>
+        </div>
+      </div>
+      <div class="view-all-mobile"><a href="travel.html">See all travel →</a></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-nav">
+          <a href="index.html">Home</a>
+          <a href="about.html">About Me</a>
+          <a href="travel.html">Travel Portfolio</a>
+          <a href="https://aminmyhead.substack.com/" target="_blank" rel="noopener">Blog</a>
+        </div>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/shotsbyvarun/" target="_blank" rel="noopener" aria-label="Instagram"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="https://www.linkedin.com/in/varun-amin/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        </div>
+      </div>
+      <p class="footer-copy">© 2026 Varun Amin. All rights reserved.</p>
+    </div>
+  </footer>
+  </div>
+
+  <script src="substack-feed.js"></script>
+  <script>
+    function toggleMenu() {
+      var btn = document.querySelector('.menu-toggle');
+      var nav = document.getElementById('mobile-nav');
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', !open);
+      nav.classList.toggle('open', !open);
+    }
+  </script>
+</body>
+</html>
