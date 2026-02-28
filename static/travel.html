@@ -6,126 +6,830 @@
   <title>Travel Portfolio — Varun Amin</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://framerusercontent.com">
+  <link rel="dns-prefetch" href="https://framerusercontent.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <aside class="site-sidebar" aria-label="Main navigation">
-    <a href="index.html" class="site-title site-title-with-logo">
-      <img src="logo.png" alt="" class="sidebar-logo" width="40" height="40" onerror="this.style.display='none'">
-      <span>Varun Amin</span>
-    </a>
+  <!-- LHS Sidebar Nav (Desktop) -->
+  <aside class="site-sidebar">
+    <img src="images/logo.png" alt="" class="sidebar-logo-img" onerror="this.style.display='none'">
+    <a href="index.html" class="sidebar-logo">VARUN AMIN</a>
     <nav class="sidebar-nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Me</a></li>
-        <li><a href="travel.html">Travel Portfolio</a></li>
-        <li><a href="https://aminmyhead.substack.com/" target="_blank" rel="noopener">Blog</a></li>
-      </ul>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="travel.html">Travel Portfolio</a>
+      <a href="blog.html">Blog</a>
     </nav>
   </aside>
 
-  <div class="page-wrap">
-  <header class="site-header" role="banner">
-    <div class="header-inner">
-      <p class="site-title"><a href="index.html">Varun Amin</a></p>
-      <button type="button" class="menu-toggle" aria-expanded="false" aria-label="Toggle menu" onclick="toggleMenu()">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Me</a></li>
-        <li><a href="travel.html">Travel Portfolio</a></li>
-        <li><a href="https://aminmyhead.substack.com/" target="_blank" rel="noopener">Blog</a></li>
-      </ul>
-    </nav>
+  <!-- Mobile Header -->
+  <header class="mobile-header">
+    <a href="index.html" class="mobile-logo">VARUN AMIN</a>
+    <button type="button" class="menu-toggle" aria-expanded="false" aria-label="Toggle menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
   </header>
+  <nav class="mobile-nav" id="mobile-nav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="travel.html">Travel Portfolio</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+  </nav>
 
-  <main>
-    <header class="page-header container">
-      <h1 class="font-display">Travel Portfolio</h1>
-      <p class="subtitle">A visual diary of places that have stayed with me — from quiet temples to busy markets, and everything in between.</p>
-    </header>
+  <!-- Main Content -->
+  <div class="main-content">
+    <main>
+      <!-- Page Header -->
+      <header class="page-header container">
+        <p class="section-label">Travel Photography</p>
+        <h1>PORTFOLIO</h1>
+      </header>
 
-    <section class="section container">
-      <div class="travel-page-grid">
-        <div class="travel-card travel-page-card">
-          <a href="#">
-            <img src="https://picsum.photos/seed/t1/800/600" alt="">
-            <div class="overlay">
-              <span class="location font-display">Kyoto, Japan</span>
-              <span class="desc">Temples, tea houses, and the quiet magic of ancient streets.</span>
-            </div>
-          </a>
-        </div>
-        <div class="travel-card travel-page-card">
-          <a href="#">
-            <img src="https://picsum.photos/seed/t2/800/1000" alt="">
-            <div class="overlay">
-              <span class="location font-display">Reykjavik, Iceland</span>
-              <span class="desc">Where fire meets ice and the light never quite leaves.</span>
-            </div>
-          </a>
-        </div>
-        <div class="travel-card travel-page-card">
-          <a href="#">
-            <img src="https://picsum.photos/seed/t3/800/500" alt="">
-            <div class="overlay">
-              <span class="location font-display">Lisbon, Portugal</span>
-              <span class="desc">Tiled facades, steep hills, and the sound of fado.</span>
-            </div>
-          </a>
-        </div>
-        <div class="travel-card travel-page-card">
-          <a href="#">
-            <img src="https://picsum.photos/seed/t4/800/700" alt="">
-            <div class="overlay">
-              <span class="location font-display">Marrakech, Morocco</span>
-              <span class="desc">Souks, riads, and the scent of orange blossom.</span>
-            </div>
-          </a>
-        </div>
-        <div class="travel-card travel-page-card">
-          <a href="#">
-            <img src="https://picsum.photos/seed/t5/800/900" alt="">
-            <div class="overlay">
-              <span class="location font-display">Patagonia, Argentina</span>
-              <span class="desc">Glaciers, peaks, and the end of the world.</span>
-            </div>
-          </a>
-        </div>
-        <div class="travel-card travel-page-card">
-          <a href="#">
-            <img src="https://picsum.photos/seed/t6/800/600" alt="">
-            <div class="overlay">
-              <span class="location font-display">Santorini, Greece</span>
-              <span class="desc">White walls, blue domes, and sunsets over the caldera.</span>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
+      <!-- Photo Grid -->
+      <section class="section" style="padding-top: 0;">
+        <div class="container">
+          <!-- Filter buttons -->
+          <div class="filter-bar">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="iceland">Iceland</button>
+            <button class="filter-btn" data-filter="japan">Japan</button>
+            <button class="filter-btn" data-filter="uk">UK</button>
+            <button class="filter-btn" data-filter="australia">Australia</button>
+            <button class="filter-btn" data-filter="vietnam">Vietnam</button>
+            <button class="filter-btn" data-filter="thailand">Thailand</button>
+            <button class="filter-btn" data-filter="cambodia">Cambodia</button>
+            <button class="filter-btn" data-filter="singapore">Singapore</button>
+            <button class="filter-btn" data-filter="indonesia">Indonesia</button>
+            <button class="filter-btn" data-filter="france">France</button>
+            <button class="filter-btn" data-filter="usa">USA</button>
+            <button class="filter-btn" data-filter="italy">Italy</button>
+            <button class="filter-btn" data-filter="germany">Germany</button>
+            <button class="filter-btn" data-filter="austria">Austria</button>
+            <button class="filter-btn" data-filter="switzerland">Switzerland</button>
+            <button class="filter-btn" data-filter="netherlands">Netherlands</button>
+            <button class="filter-btn" data-filter="canada">Canada</button>
+            <button class="filter-btn" data-filter="new-zealand">New Zealand</button>
+          </div>
 
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div>
-        <div class="footer-nav">
+          <!-- Photo grid -->
+          <div class="photo-grid" id="photo-gallery">
+            <!-- Iceland -->
+            <div class="photo-card" data-location="iceland">
+              <img src="https://framerusercontent.com/images/ysMC8n8yQakdUgNhSss8hIa4Q.jpg" alt="Skaftafellsjökull" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Skaftafellsjökull, Iceland</p>
+                <p class="photo-card-title">Skaftafellsjökull</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="iceland">
+              <img src="https://framerusercontent.com/images/AJyohLoNoTmLgXmwZLv0kvortM.jpg" alt="Reykjavík" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Reykjavík, Iceland</p>
+                <p class="photo-card-title">Reykjavík from Hallgrímskirkja Church</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="iceland">
+              <img src="https://framerusercontent.com/images/Rmm24ZbLRo54XNWe9juiIMEos8.jpg" alt="Jökulsárlón" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Jökulsárlón, Iceland</p>
+                <p class="photo-card-title">Mountains near Jökulsárlón</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="iceland">
+              <img src="https://framerusercontent.com/images/ylS8ABfZmKFkWcWAsqxDa8xoK4.jpg" alt="Seljalandsfoss" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Seljalandsfoss, Iceland</p>
+                <p class="photo-card-title">Seljalandsfoss Waterfall</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="iceland">
+              <img src="https://framerusercontent.com/images/SlTVvax7JlSjdsSEWyndPHahdwQ.jpg" alt="Jökulsárlón" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Jökulsárlón, Iceland</p>
+                <p class="photo-card-title">Jökulsárlón glacial lagoon</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="iceland">
+              <img src="https://framerusercontent.com/images/4XtSbbpW8DFggBl9WyJuz7x5k.jpg" alt="Reynisfjara Beach" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Reynisfjara Beach, Iceland</p>
+                <p class="photo-card-title">Reynisfjara Beach</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="iceland">
+              <img src="https://framerusercontent.com/images/CsgrTz4VPsg0dpwixlkbWIF2fQ.jpg" alt="Vik" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Vik, Iceland</p>
+                <p class="photo-card-title">Mountains near Vik</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="iceland">
+              <img src="https://framerusercontent.com/images/VBzcQCsBeWCuQXBrLLDOOgmi328.jpg" alt="Skógafoss" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Skógafoss, Iceland</p>
+                <p class="photo-card-title">Skógafoss</p>
+              </div>
+            </div>
+
+            <!-- Japan -->
+            <div class="photo-card" data-location="japan">
+              <img src="https://framerusercontent.com/images/2yIoOQdxrA2Nln95gfVFZmxEvM.jpg" alt="Fushimi Inari Taisha" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Kyoto, Japan</p>
+                <p class="photo-card-title">Fushimi Inari Taisha</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="japan">
+              <img src="https://framerusercontent.com/images/VLjx3VkARBsuoox6sG09DvihszM.jpg" alt="Sensō-ji" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Tokyo, Japan</p>
+                <p class="photo-card-title">Sensō-ji temple at sunset</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="japan">
+              <img src="https://framerusercontent.com/images/KPMBl7aNLsAB6K18fOkP7BiOyU.jpg" alt="Tokyo Skytree" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Tokyo, Japan</p>
+                <p class="photo-card-title">Tokyo Skytree at Night</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="japan">
+              <img src="https://framerusercontent.com/images/vfRGsKpaNqq26LDYp04J6J0xP4c.jpg" alt="Shibuya Scramble" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Tokyo, Japan</p>
+                <p class="photo-card-title">Shibuya Scramble Crossing</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="japan">
+              <img src="https://framerusercontent.com/images/ytVV2Sj6Z96mgQu8jYijs5er970.jpg" alt="Tokyo International Forum" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Tokyo, Japan</p>
+                <p class="photo-card-title">Tokyo International Forum</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="japan">
+              <img src="https://framerusercontent.com/images/f8eChSPbhWNBKfW2DCld4wiCagA.jpg" alt="Shiinamachi Station" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Tokyo, Japan</p>
+                <p class="photo-card-title">Restaurant outside Shiinamachi Station</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="japan">
+              <img src="https://framerusercontent.com/images/hLwgLwrSnJ5wtqPxxgPDKg9KuEo.jpg" alt="TeamLab" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Tokyo, Japan</p>
+                <p class="photo-card-title">Interactive Art Installation in Tokyo</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="japan">
+              <img src="https://framerusercontent.com/images/BhTthvuNFC1WJAH81q8el5kkl6o.jpg" alt="Tokyo Tower" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Tokyo, Japan</p>
+                <p class="photo-card-title">Tokyo Tower in the day</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="japan">
+              <img src="https://framerusercontent.com/images/cz2HjcCZX7nPIqI5X8OTUD0JCJU.jpg" alt="Gion" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Kyoto, Japan</p>
+                <p class="photo-card-title">Gion district in Kyoto</p>
+              </div>
+            </div>
+
+            <!-- UK -->
+            <div class="photo-card" data-location="uk">
+              <img src="https://framerusercontent.com/images/5bsSduY4nXdSki87z1sq6pOK1A.jpg" alt="Tower Bridge" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">London, UK</p>
+                <p class="photo-card-title">Sunset overlooking Tower Bridge</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="uk">
+              <img src="https://framerusercontent.com/images/aYX4FIILJXu9dSKGP9Tm6B0qAnw.jpg" alt="London Bridge" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">London, UK</p>
+                <p class="photo-card-title">Street photography near London Bridge</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="uk">
+              <img src="https://framerusercontent.com/images/5jxypsu9YTNyPLcILw1GkUJLGg.jpg" alt="St Paul's" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">London, UK</p>
+                <p class="photo-card-title">St Paul's Cathedral</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="uk">
+              <img src="https://framerusercontent.com/images/dfltMElhL1X6E4zaLj6DI1qEp9I.jpg" alt="St Pauls Millenium" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">London, UK</p>
+                <p class="photo-card-title">St Pauls Church from Millenium Bridge</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="uk">
+              <img src="https://framerusercontent.com/images/fKciRJfs06bOhL3vDpHNSQRUso.jpg" alt="Tate Modern" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">London, UK</p>
+                <p class="photo-card-title">Couple at the Tate Modern</p>
+              </div>
+            </div>
+
+            <!-- Australia -->
+            <div class="photo-card" data-location="australia">
+              <img src="https://framerusercontent.com/images/x9DVr6sqMtvIeAWAskOJakjDOo.jpg" alt="Blue Mountains Sunset" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Sydney, Australia</p>
+                <p class="photo-card-title">Sunset from the Blue Mountains</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="australia">
+              <img src="https://framerusercontent.com/images/YqtuMf9BQgEJ06SeqoB3H0IU14.jpg" alt="Blue Mountains Astro" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Sydney, Australia</p>
+                <p class="photo-card-title">Astro Photography from Blue Mountains</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="australia">
+              <img src="https://framerusercontent.com/images/jPpaWynnHHto2xoE0Vmzhfprg.jpg" alt="Opera House" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Sydney, Australia</p>
+                <p class="photo-card-title">The Opera House</p>
+              </div>
+            </div>
+
+            <!-- Vietnam -->
+            <div class="photo-card" data-location="vietnam">
+              <img src="https://framerusercontent.com/images/m5zL5ZDy8kgpTnr5MBxRgzzRbU4.jpg" alt="Phong Nha" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Phong Nha, Vietnam</p>
+                <p class="photo-card-title">Caves in Phong Nha</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="vietnam">
+              <img src="https://framerusercontent.com/images/gn9j7SBn3eOIKYAhiOeixMfVY.jpg" alt="Nha Trang" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Nha Trang, Vietnam</p>
+                <p class="photo-card-title">Fishing boat in Nha Trang</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="vietnam">
+              <img src="https://framerusercontent.com/images/JuPbip3tEoCuUuwfVpyE4f0o.jpg" alt="Nha Trang 2" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Nha Trang, Vietnam</p>
+                <p class="photo-card-title">Fishing boat in Nha Trang</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="vietnam">
+              <img src="https://framerusercontent.com/images/6lWTsiPe1ZkJTzZZ0F79noNoM.jpg" alt="Nha Trang Sunrise" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Nha Trang, Vietnam</p>
+                <p class="photo-card-title">Sunrise in Nha Trang</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="vietnam">
+              <img src="https://framerusercontent.com/images/6AXHNSYUIWW9ZvPd4mx9vLhMw.jpg" alt="Hue Mountains" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Hue, Vietnam</p>
+                <p class="photo-card-title">Mountains in Hue</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="vietnam">
+              <img src="https://framerusercontent.com/images/3jfK4v7EKyol928nwGfJBlgUUU.jpg" alt="Hai Van Pass" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Hải Vân Pass, Vietnam</p>
+                <p class="photo-card-title">Hải Vân Pass</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="vietnam">
+              <img src="https://framerusercontent.com/images/tzOuElxPcQk5CM7hlDoiOqYpE8.jpg" alt="Hue Pagoda" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Hue, Vietnam</p>
+                <p class="photo-card-title">Thien Mu Pagoda in Hue</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="vietnam">
+              <img src="https://framerusercontent.com/images/ycBIK9GNzpHgVfIReaU7FgwOMc.jpg" alt="Hai Van Pass 2" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Hải Vân Pass, Vietnam</p>
+                <p class="photo-card-title">Hải Vân Pass</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="vietnam">
+              <img src="https://framerusercontent.com/images/1s3IGjWjD1sqUs4WlFQBBROxc.jpg" alt="Hoi An" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Hoi An, Vietnam</p>
+                <p class="photo-card-title">Sunny Day in Hoi An</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="vietnam">
+              <img src="https://framerusercontent.com/images/Sc45K3jDsFpNjoq1kFJ27mxJVzA.jpg" alt="Hoi An Fisher" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Hoi An, Vietnam</p>
+                <p class="photo-card-title">Fisher in Hoi An</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="vietnam">
+              <img src="https://framerusercontent.com/images/yt2pEbtWtSjIIrODSzWDV2h1Co.jpg" alt="Ha Long Bay Sunset" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Ha Long Bay, Vietnam</p>
+                <p class="photo-card-title">Sunset in Ha Long Bay</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="vietnam">
+              <img src="https://framerusercontent.com/images/C3TJpmlyuoGWsZBVmKQRrOBTDZU.jpg" alt="Ha Long Bay" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Ha Long Bay, Vietnam</p>
+                <p class="photo-card-title">Ha Long Bay</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="vietnam">
+              <img src="https://framerusercontent.com/images/n28VGrCzR9U1H1mEUpQQUgctIKk.jpg" alt="Ho Chi Minh Night" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Ho Chi Minh City, Vietnam</p>
+                <p class="photo-card-title">Ho Chi Minh City skyline at night</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="vietnam">
+              <img src="https://framerusercontent.com/images/ovRozc8U3zGVp49rSUmTlsK8MY.jpg" alt="Ho Chi Minh" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Ho Chi Minh, Vietnam</p>
+                <p class="photo-card-title">Ho Chi Minh City Skyline</p>
+              </div>
+            </div>
+
+            <!-- Thailand -->
+            <div class="photo-card" data-location="thailand">
+              <img src="https://framerusercontent.com/images/IAluetQb0lqYN58Kukl6QpgJTgA.jpg" alt="Phi Phi Islands" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Phi Phi Islands, Thailand</p>
+                <p class="photo-card-title">Longboat in Phi Phi Islands</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="thailand">
+              <img src="https://framerusercontent.com/images/ABKHFlOIPQFSMNqdDZoGeEj3Y.jpg" alt="Phuket Sunset" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Phuket, Thailand</p>
+                <p class="photo-card-title">Sunset from Cape Promthep</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="thailand">
+              <img src="https://framerusercontent.com/images/zXemVEbCZP9tOYkVQQRirVAepA.jpg" alt="Phuket City" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Phuket, Thailand</p>
+                <p class="photo-card-title">View of the city from Phuket</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="thailand">
+              <img src="https://framerusercontent.com/images/KYOTghS2vsU1Ream4birNXsWqg.jpg" alt="Bangkok" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Bangkok, Thailand</p>
+                <p class="photo-card-title">Traffic in Bangkok</p>
+              </div>
+            </div>
+
+            <!-- Cambodia -->
+            <div class="photo-card" data-location="cambodia">
+              <img src="https://framerusercontent.com/images/WtXpdlW58mmIhkrWHLdkO6Kl3pE.jpg" alt="Phnom Penh" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Phnom Penh, Cambodia</p>
+                <p class="photo-card-title">Sunset in Phnom Penh</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="cambodia">
+              <img src="https://framerusercontent.com/images/E3x8w6pseJhYjx2KYVaSAYdkqM.jpg" alt="Tonle Sap" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Tonle Sap, Cambodia</p>
+                <p class="photo-card-title">Tonle Sap Sunset</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="cambodia">
+              <img src="https://framerusercontent.com/images/mLVBp7FPC7vbM6JEgn6bgdBRq4.jpg" alt="Angkor Wat Sunrise" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Angkor Wat, Cambodia</p>
+                <p class="photo-card-title">Angkor Wat at Sunrise</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="cambodia">
+              <img src="https://framerusercontent.com/images/OxCkvBe7voALlaqTOJqaaqoG4bA.jpg" alt="Angkor Wat" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Angkor Wat, Cambodia</p>
+                <p class="photo-card-title">Sunrise at Angkor Wat</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="cambodia">
+              <img src="https://framerusercontent.com/images/P3X5O71Z4zsn0pZwlNZpB3zT6M.jpg" alt="Koh Rong" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Koh Rong, Cambodia</p>
+                <p class="photo-card-title">Koh Rong Island</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="cambodia">
+              <img src="https://framerusercontent.com/images/e20nfb1fQH4BE14FvkDiQLbAtE8.jpg" alt="Koh Rong 2" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Koh Rong, Cambodia</p>
+                <p class="photo-card-title">Koh Rong Island in Cambodia</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="cambodia">
+              <img src="https://framerusercontent.com/images/fiD02OBdjhQyzxZegrntiF6R3f8.jpg" alt="Grand Canyon Cambodia" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Chambok, Cambodia</p>
+                <p class="photo-card-title">Grand Canyon in Cambodia</p>
+              </div>
+            </div>
+
+            <!-- Singapore -->
+            <div class="photo-card" data-location="singapore">
+              <img src="https://framerusercontent.com/images/0qBB9jDln50WWVAFI9wVKpOI8.jpg" alt="Singapore Ferris" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Singapore</p>
+                <p class="photo-card-title">Ferris wheel in Singapore</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="singapore">
+              <img src="https://framerusercontent.com/images/HsexijWrL78E2VAV1RBZypcpo.jpg" alt="Singapore Night" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Singapore</p>
+                <p class="photo-card-title">Singapore Skyline at Night</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="singapore">
+              <img src="https://framerusercontent.com/images/7OSLtCqq6Sv5V2Sdq70uoTj0.jpg" alt="Singapore Night 2" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Singapore</p>
+                <p class="photo-card-title">Singapore Skyline at Night</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="singapore">
+              <img src="https://framerusercontent.com/images/Oxu64YQAYhN19GBQSaUu5a8.jpg" alt="Gardens by the Bay" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Singapore</p>
+                <p class="photo-card-title">Gardens by the Bay cycle path</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="singapore">
+              <img src="https://framerusercontent.com/images/RllrDL73HQq0jNFGDdrzbhz96A.jpg" alt="Singapore Day" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Singapore</p>
+                <p class="photo-card-title">Singapore skyline in the day</p>
+              </div>
+            </div>
+
+            <!-- Indonesia -->
+            <div class="photo-card" data-location="indonesia">
+              <img src="https://framerusercontent.com/images/Y5dWamLsaFXrDnnxPYmFfeFvds.jpg" alt="Nusa Penida Cliff" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Nusa Penida, Indonesia</p>
+                <p class="photo-card-title">Cliff in Nusa Penida</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="indonesia">
+              <img src="https://framerusercontent.com/images/xfgsIimXurzMaegNhUvtieB0cY8.jpg" alt="Broken Beach" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Nusa Penida, Indonesia</p>
+                <p class="photo-card-title">Broken Beach in Nusa Penida</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="indonesia">
+              <img src="https://framerusercontent.com/images/aXu5JCzsVl5Xh3byHD7DFmNyni0.jpg" alt="Kelingking Beach" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Nusa Penida, Indonesia</p>
+                <p class="photo-card-title">Kelingking Beach in Nusa Penida</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="indonesia">
+              <img src="https://framerusercontent.com/images/n6s3rvAb0sRpaSU19CRiqXOMH2k.jpg" alt="Mount Batur" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Bali, Indonesia</p>
+                <p class="photo-card-title">Mount Batur Sunrise Hike</p>
+              </div>
+            </div>
+
+            <!-- France -->
+            <div class="photo-card" data-location="france">
+              <img src="https://framerusercontent.com/images/qIski0rg2VOid4T5vZP201EmHDo.jpg" alt="Eiffel Tower Sunset" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Paris, France</p>
+                <p class="photo-card-title">Sunset at the Eiffel Tower</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="france">
+              <img src="https://framerusercontent.com/images/pi3IuegiiBg890uhu3HVIrwhXFw.jpg" alt="Eiffel Tower Flowers" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Paris, France</p>
+                <p class="photo-card-title">Flowers in front of the Eiffel Tower</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="france">
+              <img src="https://framerusercontent.com/images/fXgvcguG7AyC2LEeN149woZCv5A.jpg" alt="Arc de Triomphe" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Paris, France</p>
+                <p class="photo-card-title">Sunset from Arc de Triomphe</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="france">
+              <img src="https://framerusercontent.com/images/PYRc8d87CvEE39dELONzKM3ym4U.jpg" alt="Eiffel Night" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Paris, France</p>
+                <p class="photo-card-title">Eiffel Tower at night</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="france">
+              <img src="https://framerusercontent.com/images/zgPNtwetYlAnC3jJNkmJjXUBUc.jpg" alt="Paris Street" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Paris, France</p>
+                <p class="photo-card-title">Paris side street</p>
+              </div>
+            </div>
+
+            <!-- USA -->
+            <div class="photo-card" data-location="usa">
+              <img src="https://framerusercontent.com/images/jXUhHu7z5eyAZU2DCC4FayS6lw.jpg" alt="Manhattan Bridge" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">New York, USA</p>
+                <p class="photo-card-title">Manhattan Bridge from Dumbo</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="usa">
+              <img src="https://framerusercontent.com/images/PWYjTXAR43kvrB4A7wPrK9GhrIg.jpg" alt="One WTC" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">New York, USA</p>
+                <p class="photo-card-title">One WTC from the Brooklyn Bridge</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="usa">
+              <img src="https://framerusercontent.com/images/p1gzBA9ErTaUtHEhVadY0bFUFHI.jpg" alt="Golden Gate" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">San Francisco, USA</p>
+                <p class="photo-card-title">Golden Gate Bridge</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="usa">
+              <img src="https://framerusercontent.com/images/hClrUy8AwX7cJwytFLTIzUmUmk.jpg" alt="Empire State" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">New York, USA</p>
+                <p class="photo-card-title">Street Shot of the Empire State Building</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="usa">
+              <img src="https://framerusercontent.com/images/k41CmYFJuI932zyYsXETBQK4oDQ.png" alt="NYC Skyline" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">New York, USA</p>
+                <p class="photo-card-title">New York city skyline</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="usa">
+              <img src="https://framerusercontent.com/images/wnKUuMbwPI3fidPJ1vakZRAE.jpg" alt="LA Building" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Los Angeles, USA</p>
+                <p class="photo-card-title">Futuristic building in LA</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="usa">
+              <img src="https://framerusercontent.com/images/o60H3OwdwnyHnMngIQYEq09Ojg.jpg" alt="LA Town Hall" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Los Angeles, USA</p>
+                <p class="photo-card-title">Los Angeles Town Hall</p>
+              </div>
+            </div>
+
+            <!-- Italy -->
+            <div class="photo-card" data-location="italy">
+              <img src="https://framerusercontent.com/images/9FAIh9996VgP8ynImoqJENOsg.jpg" alt="Venice Gondolas" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Venice, Italy</p>
+                <p class="photo-card-title">Gondolas in Venice</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="italy">
+              <img src="https://framerusercontent.com/images/ojUvQC0oEIVp69Kz6ERhwrFrpD4.jpg" alt="Venice Canals" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Venice, Italy</p>
+                <p class="photo-card-title">Overlooking the Venice canals</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="italy">
+              <img src="https://framerusercontent.com/images/L63PfoVXuEv6tGcpcoQjdgJ78NI.jpg" alt="Rome Spanish Steps" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Rome, Italy</p>
+                <p class="photo-card-title">View from the top of the Spanish Steps</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="italy">
+              <img src="https://framerusercontent.com/images/38JJWs9e7tPklccCJxXmFmMMLo.jpg" alt="Colosseum" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Rome, Italy</p>
+                <p class="photo-card-title">The Colosseum</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="italy">
+              <img src="https://framerusercontent.com/images/SO8v85Y2tx1UvYtSyICZqvprB8.jpg" alt="Venice Rialto" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Venice, Italy</p>
+                <p class="photo-card-title">Sunset from Rialto Bridge</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="italy">
+              <img src="https://framerusercontent.com/images/5rBhy7XNeKz0UE6cOUjDFVGEJQ.jpg" alt="Colosseum Afar" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Rome, Italy</p>
+                <p class="photo-card-title">Colosseum from afar</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="italy">
+              <img src="https://framerusercontent.com/images/zBHCW4MhArXZLezdtyVDvI2HI0.jpg" alt="Vatican" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Vatican City</p>
+                <p class="photo-card-title">Rays of light from St Peter's Basilica</p>
+              </div>
+            </div>
+
+            <!-- Germany -->
+            <div class="photo-card" data-location="germany">
+              <img src="https://framerusercontent.com/images/bhk9Hxbs7UxIHuhzed1yorR6WCM.jpg" alt="Heidelberg Castle" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Heidelberg, Germany</p>
+                <p class="photo-card-title">Heidelberg Castle</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="germany">
+              <img src="https://framerusercontent.com/images/p9ykNWYBKxhqrtt1ynKlW9kjEeM.jpg" alt="Munich" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Munich, Germany</p>
+                <p class="photo-card-title">Munich from St Peter's Church</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="germany">
+              <img src="https://framerusercontent.com/images/RhQwXFS8A23ZXIfduqBObJ6ZYMc.jpg" alt="Heidelberg Town" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Heidelberg, Germany</p>
+                <p class="photo-card-title">Heidelberg Town</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="germany">
+              <img src="https://framerusercontent.com/images/EbIonTK1zrPl52umjX6C6Ky0tpw.jpg" alt="Munich Town" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Munich, Germany</p>
+                <p class="photo-card-title">Munich Town</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="germany">
+              <img src="https://framerusercontent.com/images/JpMb9HSQ9F91ZkaBA8Us1qt2v0k.jpg" alt="Munich Tower" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Munich, Germany</p>
+                <p class="photo-card-title">Tower in Munich</p>
+              </div>
+            </div>
+
+            <!-- Austria -->
+            <div class="photo-card" data-location="austria">
+              <img src="https://framerusercontent.com/images/hGrxDd4BPzKSwcjPSEgDbxzs6x0.jpg" alt="Austrian Alps" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Innsbruck, Austria</p>
+                <p class="photo-card-title">Austrian alps out of a cafe window</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="austria">
+              <img src="https://framerusercontent.com/images/g3NyJZszIphQKqEgWnBgEh3IM.jpg" alt="Austria Countryside" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Innsbruck, Austria</p>
+                <p class="photo-card-title">Countryside in Austria</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="austria">
+              <img src="https://framerusercontent.com/images/Q85mk7ru01tBmN6gqbIIbTPnwlo.jpg" alt="Austria Town" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Innsbruck, Austria</p>
+                <p class="photo-card-title">Countryside town in Austria</p>
+              </div>
+            </div>
+
+            <!-- Switzerland -->
+            <div class="photo-card" data-location="switzerland">
+              <img src="https://framerusercontent.com/images/pnTinQQevncobAvhACm2MwWY6A.jpg" alt="Lucerne" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Lucerne, Switzerland</p>
+                <p class="photo-card-title">View from Chapel Bridge</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="switzerland">
+              <img src="https://framerusercontent.com/images/DxwJhgiySCOdnpBhn0CVA71dv9E.jpg" alt="Lucerne Bridge" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Lucerne, Switzerland</p>
+                <p class="photo-card-title">People walking on a bridge in Lucerne</p>
+              </div>
+            </div>
+
+            <!-- Netherlands -->
+            <div class="photo-card" data-location="netherlands">
+              <img src="https://framerusercontent.com/images/kvYGoLa1sxNiR3gSt04RJ6RFJIE.jpg" alt="Amsterdam Cyclist" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Amsterdam, Netherlands</p>
+                <p class="photo-card-title">Cyclist in Amsterdam</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="netherlands">
+              <img src="https://framerusercontent.com/images/ABOTUzojDbje3oUFpqB9VUSyr0.jpg" alt="Amsterdam Canals" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Amsterdam, Netherlands</p>
+                <p class="photo-card-title">Canals in Amsterdam</p>
+              </div>
+            </div>
+
+            <!-- Canada -->
+            <div class="photo-card" data-location="canada">
+              <img src="https://framerusercontent.com/images/k2JikV3SrZedyBfGa65VpHn5EzU.jpg" alt="Montreal" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Montreal, Canada</p>
+                <p class="photo-card-title">Notre Dame Cathedral</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="canada">
+              <img src="https://framerusercontent.com/images/7axmsi6rxdvz56e6MVdjMy6WkB8.jpg" alt="Toronto Skyline" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Toronto, Canada</p>
+                <p class="photo-card-title">Toronto skyline from CN Tower</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="canada">
+              <img src="https://framerusercontent.com/images/kw1aUkdmzJZlOG9D1QN4VJSxk.jpg" alt="AGO" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Toronto, Canada</p>
+                <p class="photo-card-title">Art Gallery of Ontario</p>
+              </div>
+            </div>
+
+            <!-- New Zealand -->
+            <div class="photo-card" data-location="new-zealand">
+              <img src="https://framerusercontent.com/images/vqNcNCP9nVVHWTrIfCg5OY5RQU.jpg" alt="Auckland" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Auckland, New Zealand</p>
+                <p class="photo-card-title">Rainy Day in Auckland</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="new-zealand">
+              <img src="https://framerusercontent.com/images/Zfvvf2uPKCYrShbkrBC7qFYQ3I.jpg" alt="Waiheke" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Auckland, New Zealand</p>
+                <p class="photo-card-title">Rainy Day in Waiheke Island</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="new-zealand">
+              <img src="https://framerusercontent.com/images/v3G7MXkVLa9pRD5IDjonwA84Ls.jpg" alt="Rotorua" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Rotorua, New Zealand</p>
+                <p class="photo-card-title">Sunset in Rotorua</p>
+              </div>
+            </div>
+            <div class="photo-card" data-location="new-zealand">
+              <img src="https://framerusercontent.com/images/VlvJU3TlGWCniXDFki20BlHfr5o.jpg" alt="Devonport" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Auckland, New Zealand</p>
+                <p class="photo-card-title">Moody shot from Devonport</p>
+              </div>
+            </div>
+          </div>
+
+          <p class="photo-count" id="photo-count"></p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p class="footer-logo">VARUN AMIN</p>
+        <nav class="footer-nav">
           <a href="index.html">Home</a>
           <a href="about.html">About Me</a>
           <a href="travel.html">Travel Portfolio</a>
-          <a href="https://aminmyhead.substack.com/" target="_blank" rel="noopener">Blog</a>
-        </div>
+          <a href="blog.html">Blog</a>
+        </nav>
         <div class="footer-social">
-          <a href="https://www.instagram.com/shotsbyvarun/" target="_blank" rel="noopener" aria-label="Instagram"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-          <a href="https://www.linkedin.com/in/varun-amin/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="https://www.instagram.com/shotsbyvarun/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/varun-amin/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
         </div>
+        <p class="footer-copy">© 2026 Varun Amin. All rights reserved.</p>
       </div>
-      <p class="footer-copy">© 2026 Varun Amin. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <!-- Lightbox modal -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <button class="lightbox-prev" aria-label="Previous photo">&#8249;</button>
+    <button class="lightbox-next" aria-label="Next photo">&#8250;</button>
+    <div class="lightbox-content">
+      <img src="" alt="" id="lightbox-img">
+      <div class="lightbox-caption" id="lightbox-caption"></div>
     </div>
-  </footer>
   </div>
 
   <script>
@@ -136,6 +840,108 @@
       btn.setAttribute('aria-expanded', !open);
       nav.classList.toggle('open', !open);
     }
+
+    // Filter functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const photos = document.querySelectorAll('.photo-card[data-location]');
+    const photoCount = document.getElementById('photo-count');
+
+    function updateCount(count, total) {
+      photoCount.textContent = 'Showing ' + count + ' of ' + total + ' photos';
+    }
+
+    function filterPhotos(filter) {
+      let visibleCount = 0;
+      photos.forEach(photo => {
+        const location = photo.dataset.location;
+        if (filter === 'all' || location === filter) {
+          photo.style.display = '';
+          photo.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          photo.style.display = 'none';
+          photo.classList.add('hidden');
+        }
+      });
+      updateCount(visibleCount, photos.length);
+    }
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        filterPhotos(btn.dataset.filter);
+      });
+    });
+
+    updateCount(photos.length, photos.length);
+
+    // Lightbox functionality
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    let currentIndex = 0;
+    let visiblePhotos = [];
+
+    function getVisiblePhotos() {
+      return Array.from(photos).filter(p => !p.classList.contains('hidden'));
+    }
+
+    function openLightbox(index) {
+      visiblePhotos = getVisiblePhotos();
+      currentIndex = index;
+      const photo = visiblePhotos[currentIndex];
+      const img = photo.querySelector('img');
+      const title = photo.querySelector('.photo-card-title');
+      const location = photo.querySelector('.photo-card-location');
+      
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightboxCaption.innerHTML = '<strong>' + title.textContent + '</strong> — ' + location.textContent;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function showNext() {
+      visiblePhotos = getVisiblePhotos();
+      currentIndex = (currentIndex + 1) % visiblePhotos.length;
+      openLightbox(currentIndex);
+    }
+
+    function showPrev() {
+      visiblePhotos = getVisiblePhotos();
+      currentIndex = (currentIndex - 1 + visiblePhotos.length) % visiblePhotos.length;
+      openLightbox(currentIndex);
+    }
+
+    photos.forEach((photo, index) => {
+      photo.style.cursor = 'pointer';
+      photo.addEventListener('click', (e) => {
+        e.preventDefault();
+        const visibleIndex = getVisiblePhotos().indexOf(photo);
+        openLightbox(visibleIndex);
+      });
+    });
+
+    document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+    document.querySelector('.lightbox-next').addEventListener('click', showNext);
+    document.querySelector('.lightbox-prev').addEventListener('click', showPrev);
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') showNext();
+      if (e.key === 'ArrowLeft') showPrev();
+    });
   </script>
 </body>
 </html>

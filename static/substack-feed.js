@@ -1,6 +1,11 @@
 (function () {
   var feedUrl = "https://aminmyhead.substack.com/feed";
-  var proxyUrl = "https://api.allorigins.win/raw?url=" + encodeURIComponent(feedUrl);
+  
+  var proxies = [
+    "https://api.allorigins.win/raw?url=",
+    "https://corsproxy.io/?",
+    "https://api.codetabs.com/v1/proxy?quest="
+  ];
 
   function stripCdata(s) {
     return (s || "").replace(/<!\[CDATA\[|\]\]>/g, "").trim();
@@ -12,30 +17,40 @@
     return m ? stripCdata(m[1]) : "";
   }
 
-  function formatDate(str) {
-    try {
-      var d = new Date(str);
-      return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
-    } catch (e) {
-      return str;
-    }
+  function estimateReadTime(content) {
+    var text = content.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+    var wordCount = text.split(" ").length;
+    var minutes = Math.ceil(wordCount / 200);
+    return minutes < 1 ? 1 : minutes;
+  }
+
+  function formatDate(dateStr) {
+    if (!dateStr) return "";
+    var d = new Date(dateStr);
+    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    return months[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
   }
 
   function parseItems(xml, limit) {
     var items = [];
     var itemRe = /<item>([\s\S]*?)<\/item>/gi;
     var match;
-    while ((match = itemRe.exec(xml)) !== null && items.length < (limit || 10)) {
+    while ((match = itemRe.exec(xml)) !== null && items.length < (limit || 20)) {
       var block = match[1];
       var title = getTag(block, "title");
       var link = getTag(block, "link");
       var pubDate = getTag(block, "pubDate");
-      var desc = getTag(block, "description") || getTag(block, "content:encoded");
-      if (desc) {
-        desc = desc.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim().slice(0, 160);
-        if (desc.length >= 160) desc += "\u2026";
+      var content = getTag(block, "content:encoded") || getTag(block, "description");
+      var readTime = estimateReadTime(content);
+      if (title && link) {
+        items.push({ 
+          title: title, 
+          link: link, 
+          pubDate: pubDate, 
+          readTime: readTime,
+          formattedDate: formatDate(pubDate)
+        });
       }
-      if (title && link) items.push({ title: title, link: link, pubDate: pubDate, description: desc });
     }
     return items;
   }
@@ -43,14 +58,13 @@
   function renderHomePreview(container, posts) {
     if (!container || !posts.length) return;
     var html = "";
-    for (var i = 0; i < Math.min(3, posts.length); i++) {
+    var limit = Math.min(5, posts.length);
+    for (var i = 0; i < limit; i++) {
       var p = posts[i];
-      html += '<a href="' + p.link + '" target="_blank" rel="noopener" class="card-link">';
-      html += '<div class="card-image"><img src="https://picsum.photos/seed/s' + (i + 1) + '/800/500" alt=""></div>';
-      html += '<h3 class="card-title font-display">' + (p.title || "").replace(/</g, "&lt;") + "</h3>";
-      html += '<p class="card-excerpt">' + (p.description || "").replace(/</g, "&lt;") + "</p>";
-      if (p.pubDate) html += '<span class="card-date">' + formatDate(p.pubDate) + "</span>";
-      html += "</a>";
+      html += '<a href="' + p.link + '" target="_blank" rel="noopener" class="blog-list-item">';
+      html += '<span class="blog-list-title">' + (p.title || "").replace(/</g, "&lt;") + '</span>';
+      html += '<span class="blog-list-meta">' + p.readTime + ' min read</span>';
+      html += '</a>';
     }
     container.innerHTML = html;
   }
@@ -60,23 +74,79 @@
     var html = "";
     for (var i = 0; i < posts.length; i++) {
       var p = posts[i];
-      html += '<a href="' + p.link + '" target="_blank" rel="noopener" class="card-link">';
-      html += '<div class="card-image"><img src="https://picsum.photos/seed/sb' + i + '/800/500" alt=""></div>';
-      html += '<h2 class="card-title font-display">' + (p.title || "").replace(/</g, "&lt;") + "</h2>";
-      html += '<p class="card-excerpt">' + (p.description || "").replace(/</g, "&lt;") + "</p>";
-      if (p.pubDate) html += '<span class="card-date">' + formatDate(p.pubDate) + "</span>";
-      html += '<span class="read-more">Read on Substack →</span>';
-      html += "</a>";
+      html += '<a href="' + p.link + '" target="_blank" rel="noopener" class="blog-list-item">';
+      html += '<span class="blog-list-title">' + (p.title || "").replace(/</g, "&lt;") + '</span>';
+      html += '<span class="blog-list-meta">';
+      if (p.formattedDate) html += p.formattedDate + ' · ';
+      html += p.readTime + ' min read</span>';
+      html += '</a>';
     }
     container.innerHTML = html;
   }
 
-  fetch(proxyUrl)
-    .then(function (r) { return r.text(); })
-    .then(function (xml) {
-      var posts = parseItems(xml, 12);
-      renderHomePreview(document.getElementById("substack-home-preview"), posts);
-      renderBlogGrid(document.getElementById("substack-blog-grid"), posts);
-    })
-    .catch(function () {});
+  function tryFetch(proxyIndex) {
+    if (proxyIndex >= proxies.length) {
+      renderFallback();
+      return;
+    }
+    
+    var proxyUrl = proxies[proxyIndex] + encodeURIComponent(feedUrl);
+    
+    fetch(proxyUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        return r.text();
+      })
+      .then(function (xml) {
+        if (!xml || xml.indexOf("<item>") === -1) {
+          throw new Error("Invalid RSS");
+        }
+        var posts = parseItems(xml, 20);
+        if (posts.length === 0) {
+          throw new Error("No posts found");
+        }
+        renderHomePreview(document.getElementById("substack-home-preview"), posts);
+        renderBlogGrid(document.getElementById("substack-blog-grid"), posts);
+      })
+      .catch(function (err) {
+        tryFetch(proxyIndex + 1);
+      });
+  }
+
+  function renderFallback() {
+    var fallbackPosts = [
+      { title: "Introduction", link: "https://aminmyhead.substack.com/", readTime: 3, formattedDate: "Jan 1, 2024" },
+      { title: "Supercharge your intern experience", link: "https://aminmyhead.substack.com/", readTime: 5, formattedDate: "Feb 15, 2024" },
+      { title: "Why working at a Startup should be a priority", link: "https://aminmyhead.substack.com/", readTime: 6, formattedDate: "Mar 10, 2024" }
+    ];
+
+    var homeContainer = document.getElementById("substack-home-preview");
+    var blogContainer = document.getElementById("substack-blog-grid");
+
+    if (homeContainer) {
+      var html = "";
+      for (var i = 0; i < fallbackPosts.length; i++) {
+        var p = fallbackPosts[i];
+        html += '<a href="' + p.link + '" target="_blank" rel="noopener" class="blog-list-item">';
+        html += '<span class="blog-list-title">' + p.title + '</span>';
+        html += '<span class="blog-list-meta">' + p.readTime + ' min read</span>';
+        html += '</a>';
+      }
+      homeContainer.innerHTML = html;
+    }
+
+    if (blogContainer) {
+      var html = "";
+      for (var i = 0; i < fallbackPosts.length; i++) {
+        var p = fallbackPosts[i];
+        html += '<a href="' + p.link + '" target="_blank" rel="noopener" class="blog-list-item">';
+        html += '<span class="blog-list-title">' + p.title + '</span>';
+        html += '<span class="blog-list-meta">' + p.formattedDate + ' · ' + p.readTime + ' min read</span>';
+        html += '</a>';
+      }
+      blogContainer.innerHTML = html;
+    }
+  }
+
+  tryFetch(0);
 })();

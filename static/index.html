@@ -3,157 +3,238 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Varun Amin | Writer · Traveler · Creator</title>
+  <title>Varun Amin</title>
+  <!-- Preconnect to external domains for faster loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://framerusercontent.com">
+  <link rel="dns-prefetch" href="https://framerusercontent.com">
+  <!-- Load fonts with display swap for faster text rendering -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <aside class="site-sidebar" aria-label="Main navigation">
-    <a href="index.html" class="site-title site-title-with-logo">
-      <img src="logo.png" alt="" class="sidebar-logo" width="40" height="40" onerror="this.style.display='none'">
-      <span>Varun Amin</span>
-    </a>
+  <!-- LHS Sidebar Nav (Desktop) -->
+  <aside class="site-sidebar">
+    <img src="images/logo.png" alt="" class="sidebar-logo-img" onerror="this.style.display='none'">
+    <a href="index.html" class="sidebar-logo">VARUN AMIN</a>
     <nav class="sidebar-nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Me</a></li>
-        <li><a href="travel.html">Travel Portfolio</a></li>
-        <li><a href="https://aminmyhead.substack.com/" target="_blank" rel="noopener">Blog</a></li>
-      </ul>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Me</a>
+      <a href="travel.html">Travel Portfolio</a>
+      <a href="blog.html">Blog</a>
     </nav>
   </aside>
 
-  <div class="page-wrap">
-  <header class="site-header" role="banner">
-    <div class="header-inner">
-      <p class="site-title"><a href="index.html">Varun Amin</a></p>
-      <button type="button" class="menu-toggle" aria-expanded="false" aria-label="Toggle menu" onclick="toggleMenu()">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Me</a></li>
-        <li><a href="travel.html">Travel Portfolio</a></li>
-        <li><a href="https://aminmyhead.substack.com/" target="_blank" rel="noopener">Blog</a></li>
-      </ul>
-    </nav>
+  <!-- Mobile Header -->
+  <header class="mobile-header">
+    <a href="index.html" class="mobile-logo">VARUN AMIN</a>
+    <button type="button" class="menu-toggle" aria-expanded="false" aria-label="Toggle menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
   </header>
+  <nav class="mobile-nav" id="mobile-nav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="travel.html">Travel Portfolio</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+  </nav>
 
-  <main>
-    <section class="hero">
-      <h1 class="font-display"><span>Varun</span><span>Amin</span></h1>
-      <p class="tagline">Writer · Traveler · Martial Artist · Mentor</p>
-      <a href="about.html" class="cta">Get to know me</a>
-    </section>
+  <!-- Main Content -->
+  <div class="main-content">
+    <main>
+      <!-- Hero -->
+      <section class="hero">
+        <h1><span>Hey</span><span>I'm Varun 👋🏾</span></h1>
+      </section>
 
-    <div class="ticker-wrap">
-      <div class="ticker">
-        <span>Writer</span><span class="sep">·</span>
-        <span>Traveler</span><span class="sep">·</span>
-        <span>Martial Artist</span><span class="sep">·</span>
-        <span>Mentor</span><span class="sep">·</span>
-        <span>Photographer</span><span class="sep">·</span>
-        <span>Storyteller</span><span class="sep">·</span>
-        <span>Writer</span><span class="sep">·</span>
-        <span>Traveler</span><span class="sep">·</span>
-        <span>Martial Artist</span><span class="sep">·</span>
-        <span>Mentor</span><span class="sep">·</span>
-        <span>Photographer</span><span class="sep">·</span>
-        <span>Storyteller</span>
-      </div>
-    </div>
+      <!-- Rotating Photo Panel -->
+      <section class="photo-carousel-section">
+        <div class="photo-carousel" id="photo-carousel">
+          <div class="carousel-track" id="carousel-track">
+            <div class="carousel-slide">
+              <img src="https://framerusercontent.com/images/qIski0rg2VOid4T5vZP201EmHDo.jpg" alt="Eiffel Tower" fetchpriority="high">
+              <div class="carousel-caption">
+                <p class="carousel-location">Paris, France</p>
+                <p class="carousel-title">Sunset at the Eiffel Tower</p>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <img src="https://framerusercontent.com/images/jXUhHu7z5eyAZU2DCC4FayS6lw.jpg" alt="Manhattan Bridge" loading="lazy">
+              <div class="carousel-caption">
+                <p class="carousel-location">New York, USA</p>
+                <p class="carousel-title">Manhattan Bridge from Dumbo</p>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <img src="https://framerusercontent.com/images/SlTVvax7JlSjdsSEWyndPHahdwQ.jpg" alt="Jökulsárlón" loading="lazy">
+              <div class="carousel-caption">
+                <p class="carousel-location">Jökulsárlón, Iceland</p>
+                <p class="carousel-title">Jökulsárlón glacial lagoon</p>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <img src="https://framerusercontent.com/images/aXu5JCzsVl5Xh3byHD7DFmNyni0.jpg" alt="Kelingking Beach" loading="lazy">
+              <div class="carousel-caption">
+                <p class="carousel-location">Nusa Penida, Indonesia</p>
+                <p class="carousel-title">Kelingking Beach</p>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <img src="https://framerusercontent.com/images/9FAIh9996VgP8ynImoqJENOsg.jpg" alt="Venice" loading="lazy">
+              <div class="carousel-caption">
+                <p class="carousel-location">Venice, Italy</p>
+                <p class="carousel-title">Gondolas in Venice</p>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <img src="https://framerusercontent.com/images/KPMBl7aNLsAB6K18fOkP7BiOyU.jpg" alt="Tokyo Skytree" loading="lazy">
+              <div class="carousel-caption">
+                <p class="carousel-location">Tokyo, Japan</p>
+                <p class="carousel-title">Tokyo Skytree at Night</p>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <img src="https://framerusercontent.com/images/ABKHFlOIPQFSMNqdDZoGeEj3Y.jpg" alt="Phuket Sunset" loading="lazy">
+              <div class="carousel-caption">
+                <p class="carousel-location">Phuket, Thailand</p>
+                <p class="carousel-title">Sunset from Cape Promthep</p>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <img src="https://framerusercontent.com/images/ovRozc8U3zGVp49rSUmTlsK8MY.jpg" alt="Ho Chi Minh" loading="lazy">
+              <div class="carousel-caption">
+                <p class="carousel-location">Ho Chi Minh, Vietnam</p>
+                <p class="carousel-title">Ho Chi Minh City Skyline</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-dots" id="carousel-dots"></div>
+      </section>
 
-    <section class="section container">
-      <div class="intro-grid">
-        <div class="intro-photo">
-          <img src="https://picsum.photos/seed/portrait/800/1000" alt="">
+      <!-- Recently Published Posts -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <p class="section-label">Blog</p>
+            <h2 class="section-title">Recently Published Posts</h2>
+          </div>
+          <div class="blog-list" id="substack-home-preview">
+            <!-- Loading state - will be replaced by JS -->
+            <div class="blog-list-item">
+              <span class="blog-list-title">Loading posts...</span>
+            </div>
+          </div>
         </div>
-        <div>
-          <p class="intro-text">
-            I'm a writer and traveler who believes the best stories come from paying attention — to places, people, and the small moments in between. When I'm not on the road or at the keyboard, I train martial arts and mentor others who want to live with more intention.
-          </p>
-          <a href="about.html" class="intro-link">Read my full story →</a>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="section section-border">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title font-display">Latest from the Blog</h2>
-          <a href="https://aminmyhead.substack.com/" target="_blank" rel="noopener" class="view-all">View all</a>
+      <!-- Recent Travels -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <p class="section-label">Travel Photography</p>
+            <h2 class="section-title">Recent Travels</h2>
+          </div>
+          <div class="travel-grid">
+            <a href="travel.html" class="photo-card">
+              <img src="https://framerusercontent.com/images/AJyohLoNoTmLgXmwZLv0kvortM.jpg" alt="Reykjavík" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Iceland</p>
+                <p class="photo-card-title">Reykjavík from Hallgrímskirkja Church</p>
+              </div>
+            </a>
+            <a href="travel.html" class="photo-card">
+              <img src="https://framerusercontent.com/images/2yIoOQdxrA2Nln95gfVFZmxEvM.jpg" alt="Fushimi Inari" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Kyoto, Japan</p>
+                <p class="photo-card-title">Fushimi Inari Taisha</p>
+              </div>
+            </a>
+            <a href="travel.html" class="photo-card">
+              <img src="https://framerusercontent.com/images/pi3IuegiiBg890uhu3HVIrwhXFw.jpg" alt="Eiffel Tower" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Paris, France</p>
+                <p class="photo-card-title">Flowers in front of the Eiffel Tower</p>
+              </div>
+            </a>
+            <a href="travel.html" class="photo-card">
+              <img src="https://framerusercontent.com/images/n6s3rvAb0sRpaSU19CRiqXOMH2k.jpg" alt="Mount Batur" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Bali, Indonesia</p>
+                <p class="photo-card-title">Mount Batur Sunrise Hike</p>
+              </div>
+            </a>
+            <a href="travel.html" class="photo-card">
+              <img src="https://framerusercontent.com/images/p1gzBA9ErTaUtHEhVadY0bFUFHI.jpg" alt="Golden Gate" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">San Francisco, USA</p>
+                <p class="photo-card-title">Golden Gate Bridge</p>
+              </div>
+            </a>
+            <a href="travel.html" class="photo-card">
+              <img src="https://framerusercontent.com/images/mLVBp7FPC7vbM6JEgn6bgdBRq4.jpg" alt="Angkor Wat" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Angkor Wat, Cambodia</p>
+                <p class="photo-card-title">Angkor Wat at Sunrise</p>
+              </div>
+            </a>
+            <a href="travel.html" class="photo-card">
+              <img src="https://framerusercontent.com/images/HsexijWrL78E2VAV1RBZypcpo.jpg" alt="Singapore" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Singapore</p>
+                <p class="photo-card-title">Singapore Skyline at Night</p>
+              </div>
+            </a>
+            <a href="travel.html" class="photo-card">
+              <img src="https://framerusercontent.com/images/yt2pEbtWtSjIIrODSzWDV2h1Co.jpg" alt="Ha Long Bay" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Ha Long Bay, Vietnam</p>
+                <p class="photo-card-title">Sunset in Ha Long Bay</p>
+              </div>
+            </a>
+            <a href="travel.html" class="photo-card">
+              <img src="https://framerusercontent.com/images/ojUvQC0oEIVp69Kz6ERhwrFrpD4.jpg" alt="Venice" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Venice, Italy</p>
+                <p class="photo-card-title">Overlooking the Venice canals</p>
+              </div>
+            </a>
+            <a href="travel.html" class="photo-card">
+              <img src="https://framerusercontent.com/images/jPpaWynnHHto2xoE0Vmzhfprg.jpg" alt="Opera House" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Sydney, Australia</p>
+                <p class="photo-card-title">The Opera House</p>
+              </div>
+            </a>
+          </div>
         </div>
-        <div id="substack-home-preview" class="cards-grid">
-          <a href="https://aminmyhead.substack.com/" target="_blank" rel="noopener" class="card-link">
-            <div class="card-image"><img src="https://picsum.photos/seed/blog1/800/500" alt=""></div>
-            <h3 class="card-title font-display">Latest on Substack</h3>
-            <p class="card-excerpt">Loading posts from Amin My Head…</p>
-          </a>
-          <a href="https://aminmyhead.substack.com/" target="_blank" rel="noopener" class="card-link">
-            <div class="card-image"><img src="https://picsum.photos/seed/blog2/800/500" alt=""></div>
-            <h3 class="card-title font-display">Amin My Head</h3>
-            <p class="card-excerpt">Productivity, technology, careers, and life.</p>
-          </a>
-          <a href="https://aminmyhead.substack.com/" target="_blank" rel="noopener" class="card-link">
-            <div class="card-image"><img src="https://picsum.photos/seed/blog3/800/500" alt=""></div>
-            <h3 class="card-title font-display">Subscribe</h3>
-            <p class="card-excerpt">Get new posts delivered to your inbox.</p>
-          </a>
-        </div>
-        <div class="view-all-mobile"><a href="https://aminmyhead.substack.com/" target="_blank" rel="noopener">View all posts →</a></div>
-      </div>
-    </section>
+      </section>
+    </main>
 
-    <section class="section container">
-      <div class="section-header">
-        <h2 class="section-title font-display">Travel Portfolio</h2>
-        <a href="travel.html" class="view-all">See all</a>
-      </div>
-      <div class="travel-grid">
-        <div class="travel-card">
-          <a href="travel.html">
-            <img src="https://picsum.photos/seed/travel1/600/400" alt="">
-            <div class="overlay"><span class="location font-display">Japan</span></div>
-          </a>
-        </div>
-        <div class="travel-card">
-          <a href="travel.html">
-            <img src="https://picsum.photos/seed/travel2/600/400" alt="">
-            <div class="overlay"><span class="location font-display">Iceland</span></div>
-          </a>
-        </div>
-        <div class="travel-card">
-          <a href="travel.html">
-            <img src="https://picsum.photos/seed/travel3/600/400" alt="">
-            <div class="overlay"><span class="location font-display">Portugal</span></div>
-          </a>
-        </div>
-      </div>
-      <div class="view-all-mobile"><a href="travel.html">See all travel →</a></div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div>
-        <div class="footer-nav">
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p class="footer-logo">VARUN AMIN</p>
+        <nav class="footer-nav">
           <a href="index.html">Home</a>
           <a href="about.html">About Me</a>
           <a href="travel.html">Travel Portfolio</a>
-          <a href="https://aminmyhead.substack.com/" target="_blank" rel="noopener">Blog</a>
-        </div>
+          <a href="blog.html">Blog</a>
+        </nav>
         <div class="footer-social">
-          <a href="https://www.instagram.com/shotsbyvarun/" target="_blank" rel="noopener" aria-label="Instagram"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-          <a href="https://www.linkedin.com/in/varun-amin/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a href="https://www.instagram.com/shotsbyvarun/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/varun-amin/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
         </div>
+        <p class="footer-copy">© 2026 Varun Amin. All rights reserved.</p>
       </div>
-      <p class="footer-copy">© 2026 Varun Amin. All rights reserved.</p>
-    </div>
-  </footer>
+    </footer>
   </div>
 
   <script src="substack-feed.js"></script>
@@ -165,6 +246,79 @@
       btn.setAttribute('aria-expanded', !open);
       nav.classList.toggle('open', !open);
     }
+
+    // Photo Carousel
+    (function() {
+      const track = document.getElementById('carousel-track');
+      const slides = track.querySelectorAll('.carousel-slide');
+      const dotsContainer = document.getElementById('carousel-dots');
+      let currentSlide = 0;
+      let autoplayInterval;
+
+      // Create dots
+      slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        dot.addEventListener('click', () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+      });
+
+      const dots = dotsContainer.querySelectorAll('.carousel-dot');
+
+      function goToSlide(index) {
+        currentSlide = index;
+        track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === currentSlide);
+        });
+      }
+
+      function nextSlide() {
+        goToSlide((currentSlide + 1) % slides.length);
+      }
+
+      function startAutoplay() {
+        autoplayInterval = setInterval(nextSlide, 4000);
+      }
+
+      function stopAutoplay() {
+        clearInterval(autoplayInterval);
+      }
+
+      // Touch/swipe support
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      track.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        stopAutoplay();
+      }, { passive: true });
+
+      track.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+        startAutoplay();
+      }, { passive: true });
+
+      function handleSwipe() {
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) {
+            goToSlide((currentSlide + 1) % slides.length);
+          } else {
+            goToSlide((currentSlide - 1 + slides.length) % slides.length);
+          }
+        }
+      }
+
+      // Pause on hover
+      const carousel = document.getElementById('photo-carousel');
+      carousel.addEventListener('mouseenter', stopAutoplay);
+      carousel.addEventListener('mouseleave', startAutoplay);
+
+      startAutoplay();
+    })();
   </script>
 </body>
 </html>
