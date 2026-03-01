@@ -281,11 +281,15 @@ img { max-width: 100%; height: auto; display: block; }
   .travel-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
-/* Home page travel grid - fixed 3 columns */
+/* Home page travel grid - fixed 3 columns on desktop, 2 on mobile */
 .travel-grid-home {
   display: grid;
   gap: 2px;
   grid-template-columns: repeat(2, 1fr);
+}
+/* Hide 9th photo on mobile to show 8 photos (4 rows × 2 columns) */
+@media (max-width: 639px) {
+  .travel-grid-home .photo-card:nth-child(n+9) { display: none; }
 }
 @media (min-width: 640px) {
   .travel-grid-home { grid-template-columns: repeat(3, 1fr); }
@@ -629,7 +633,7 @@ img { max-width: 100%; height: auto; display: block; }
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.02em;
@@ -637,8 +641,8 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .footer-logo-img {
-  width: 28px;
-  height: 28px;
+  width: 20px;
+  height: 20px;
   object-fit: contain;
 }
 
@@ -732,20 +736,10 @@ img { max-width: 100%; height: auto; display: block; }
   }
 }
 
-.carousel-slide:hover {
-  transform: scale(1.02);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-}
-
 .carousel-slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.carousel-slide:hover img {
-  transform: scale(1.05);
 }
 
 /* Carousel navigation arrows */
