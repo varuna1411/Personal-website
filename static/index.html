@@ -26,7 +26,10 @@
 
   <!-- Mobile Header -->
   <header class="mobile-header">
-    <a href="index.html" class="mobile-logo">VARUN AMIN</a>
+    <a href="index.html" class="mobile-logo">
+      <img src="images/logo.svg" alt="" class="mobile-logo-img">
+      VARUN AMIN
+    </a>
     <button type="button" class="menu-toggle" aria-expanded="false" aria-label="Toggle menu" onclick="toggleMenu()">
       <span></span><span></span><span></span>
     </button>
@@ -115,53 +118,88 @@
             <p class="section-label">Travel Photography</p>
             <h2 class="section-title">Recent Travels</h2>
           </div>
-          <div class="travel-grid">
-            <a href="travel.html" class="photo-card">
+          <div class="travel-grid-home" id="home-travel-grid">
+            <div class="photo-card" data-index="0">
               <img src="images/iceland/reykjavík.jpeg" alt="Reykjavík" loading="lazy">
               <div class="photo-card-overlay">
                 <p class="photo-card-location">Iceland</p>
                 <p class="photo-card-title">Reykjavík from Hallgrímskirkja Church</p>
               </div>
-            </a>
-            <a href="travel.html" class="photo-card">
+            </div>
+            <div class="photo-card" data-index="1">
               <img src="images/japan/kyoto2.jpeg" alt="Fushimi Inari" loading="lazy">
               <div class="photo-card-overlay">
                 <p class="photo-card-location">Kyoto, Japan</p>
                 <p class="photo-card-title">Fushimi Inari Taisha</p>
               </div>
-            </a>
-            <a href="travel.html" class="photo-card">
+            </div>
+            <div class="photo-card" data-index="2">
               <img src="images/france/paris-3.jpeg" alt="Eiffel Tower" loading="lazy">
               <div class="photo-card-overlay">
                 <p class="photo-card-location">Paris, France</p>
                 <p class="photo-card-title">Flowers in front of the Eiffel Tower</p>
               </div>
-            </a>
-            <a href="travel.html" class="photo-card">
+            </div>
+            <div class="photo-card" data-index="3">
               <img src="images/indonesia/mount-batur.jpeg" alt="Mount Batur" loading="lazy">
               <div class="photo-card-overlay">
                 <p class="photo-card-location">Bali, Indonesia</p>
                 <p class="photo-card-title">Mount Batur Sunrise Hike</p>
               </div>
-            </a>
-            <a href="travel.html" class="photo-card">
+            </div>
+            <div class="photo-card" data-index="4">
               <img src="images/usa/san-francisco.jpg" alt="Golden Gate" loading="lazy">
               <div class="photo-card-overlay">
                 <p class="photo-card-location">San Francisco, USA</p>
                 <p class="photo-card-title">Golden Gate Bridge</p>
               </div>
-            </a>
-            <a href="travel.html" class="photo-card">
+            </div>
+            <div class="photo-card" data-index="5">
               <img src="images/italy/venice-1.jpg" alt="Venice" loading="lazy">
               <div class="photo-card-overlay">
                 <p class="photo-card-location">Venice, Italy</p>
                 <p class="photo-card-title">Gondolas in Venice</p>
               </div>
-            </a>
+            </div>
+            <div class="photo-card" data-index="6">
+              <img src="images/uk/london.jpeg" alt="Tower Bridge" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">London, UK</p>
+                <p class="photo-card-title">Sunset overlooking Tower Bridge</p>
+              </div>
+            </div>
+            <div class="photo-card" data-index="7">
+              <img src="images/cambodia/angkorwat.jpeg" alt="Angkor Wat" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Angkor Wat, Cambodia</p>
+                <p class="photo-card-title">Angkor Wat at Sunrise</p>
+              </div>
+            </div>
+            <div class="photo-card" data-index="8">
+              <img src="images/singapore/singapore-2.jpeg" alt="Singapore" loading="lazy">
+              <div class="photo-card-overlay">
+                <p class="photo-card-location">Singapore</p>
+                <p class="photo-card-title">Singapore Skyline at Night</p>
+              </div>
+            </div>
+          </div>
+          <div class="view-more-container">
+            <a href="travel.html" class="view-more-btn">View Full Portfolio</a>
           </div>
         </div>
       </section>
     </main>
+
+    <!-- Lightbox modal -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+      <button class="lightbox-close" aria-label="Close">&times;</button>
+      <button class="lightbox-prev" aria-label="Previous photo">&#8249;</button>
+      <button class="lightbox-next" aria-label="Next photo">&#8250;</button>
+      <div class="lightbox-content">
+        <img src="" alt="" id="lightbox-img">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+      </div>
+    </div>
 
     <!-- Footer -->
     <footer class="site-footer">
@@ -267,6 +305,67 @@
       carousel.addEventListener('mouseleave', startAutoplay);
 
       startAutoplay();
+    })();
+
+    // Lightbox functionality for home page travel grid
+    (function() {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const lightboxCaption = document.getElementById('lightbox-caption');
+      const photos = document.querySelectorAll('#home-travel-grid .photo-card');
+      let currentIndex = 0;
+
+      function openLightbox(index) {
+        currentIndex = index;
+        const photo = photos[currentIndex];
+        const img = photo.querySelector('img');
+        const title = photo.querySelector('.photo-card-title');
+        const location = photo.querySelector('.photo-card-location');
+        
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightboxCaption.innerHTML = '<strong>' + title.textContent + '</strong> — ' + location.textContent;
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      function showNext() {
+        currentIndex = (currentIndex + 1) % photos.length;
+        openLightbox(currentIndex);
+      }
+
+      function showPrev() {
+        currentIndex = (currentIndex - 1 + photos.length) % photos.length;
+        openLightbox(currentIndex);
+      }
+
+      photos.forEach((photo, index) => {
+        photo.style.cursor = 'pointer';
+        photo.addEventListener('click', (e) => {
+          e.preventDefault();
+          openLightbox(index);
+        });
+      });
+
+      document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+      document.querySelector('.lightbox-next').addEventListener('click', showNext);
+      document.querySelector('.lightbox-prev').addEventListener('click', showPrev);
+
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('open')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') showNext();
+        if (e.key === 'ArrowLeft') showPrev();
+      });
     })();
   </script>
 </body>

@@ -52,10 +52,9 @@ img { max-width: 100%; height: auto; display: block; }
 .sidebar-logo-img {
   width: 40px;
   height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
+  object-fit: contain;
   margin-bottom: 16px;
-  background: var(--bg-card);
+  background: transparent;
 }
 
 .sidebar-logo {
@@ -114,6 +113,15 @@ img { max-width: 100%; height: auto; display: block; }
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mobile-logo-img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
 }
 
 .menu-toggle {
@@ -262,13 +270,15 @@ img { max-width: 100%; height: auto; display: block; }
   .photo-grid,
   .travel-grid { grid-template-columns: repeat(3, 1fr); }
 }
-@media (min-width: 1024px) {
-  .photo-grid,
-  .travel-grid { grid-template-columns: repeat(4, 1fr); }
+
+/* Home page travel grid - fixed 3 columns */
+.travel-grid-home {
+  display: grid;
+  gap: 2px;
+  grid-template-columns: repeat(2, 1fr);
 }
-@media (min-width: 1400px) {
-  .photo-grid,
-  .travel-grid { grid-template-columns: repeat(5, 1fr); }
+@media (min-width: 640px) {
+  .travel-grid-home { grid-template-columns: repeat(3, 1fr); }
 }
 
 .photo-card,
@@ -361,6 +371,24 @@ img { max-width: 100%; height: auto; display: block; }
   flex-direction: column;
 }
 
+.blog-year-group {
+  margin-top: 40px;
+}
+.blog-year-group:first-child {
+  margin-top: 0;
+}
+
+.blog-year-header {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0;
+}
+
 .blog-list-item {
   display: flex;
   flex-direction: column;
@@ -369,8 +397,8 @@ img { max-width: 100%; height: auto; display: block; }
   border-bottom: 1px solid var(--border);
   transition: opacity 0.2s;
 }
-.blog-list-item:first-child {
-  padding-top: 0;
+.blog-year-group .blog-list-item:first-child {
+  padding-top: 20px;
 }
 .blog-list-item:hover {
   opacity: 0.7;
@@ -723,7 +751,8 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--fg-subtle);
 }
 
-.load-more-btn {
+.load-more-btn,
+.view-more-btn {
   display: inline-block;
   margin-left: 8px;
   padding: 8px 20px;
@@ -736,9 +765,21 @@ img { max-width: 100%; height: auto; display: block; }
   font-weight: 500;
   cursor: pointer;
   transition: opacity 0.2s;
+  text-decoration: none;
 }
-.load-more-btn:hover {
+.load-more-btn:hover,
+.view-more-btn:hover {
   opacity: 0.8;
+}
+
+.view-more-container {
+  text-align: center;
+  margin-top: 32px;
+}
+
+.view-more-btn {
+  margin-left: 0;
+  padding: 12px 28px;
 }
 
 /* Hide old header styles */

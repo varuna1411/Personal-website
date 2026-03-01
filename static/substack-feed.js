@@ -69,17 +69,51 @@
     container.innerHTML = html;
   }
 
+  function getYear(dateStr) {
+    if (!dateStr) return "Unknown";
+    var d = new Date(dateStr);
+    return d.getFullYear().toString();
+  }
+
   function renderBlogGrid(container, posts) {
     if (!container || !posts.length) return;
-    var html = "";
+    
+    // Group posts by year
+    var postsByYear = {};
     for (var i = 0; i < posts.length; i++) {
       var p = posts[i];
-      html += '<a href="' + p.link + '" target="_blank" rel="noopener" class="blog-list-item">';
-      html += '<span class="blog-list-title">' + (p.title || "").replace(/</g, "&lt;") + '</span>';
-      html += '<span class="blog-list-meta">';
-      if (p.formattedDate) html += p.formattedDate + ' · ';
-      html += p.readTime + ' min read</span>';
-      html += '</a>';
+      var year = getYear(p.pubDate);
+      if (!postsByYear[year]) {
+        postsByYear[year] = [];
+      }
+      postsByYear[year].push(p);
+    }
+    
+    // Get years sorted in descending order
+    var years = Object.keys(postsByYear).sort(function(a, b) {
+      return b - a;
+    });
+    
+    var html = "";
+    for (var y = 0; y < years.length; y++) {
+      var year = years[y];
+      var yearPosts = postsByYear[year];
+      
+      html += '<div class="blog-year-group">';
+      html += '<h3 class="blog-year-header">' + year + '</h3>';
+      html += '<div class="blog-list">';
+      
+      for (var i = 0; i < yearPosts.length; i++) {
+        var p = yearPosts[i];
+        html += '<a href="' + p.link + '" target="_blank" rel="noopener" class="blog-list-item">';
+        html += '<span class="blog-list-title">' + (p.title || "").replace(/</g, "&lt;") + '</span>';
+        html += '<span class="blog-list-meta">';
+        if (p.formattedDate) html += p.formattedDate + ' · ';
+        html += p.readTime + ' min read</span>';
+        html += '</a>';
+      }
+      
+      html += '</div></div>';
     }
     container.innerHTML = html;
   }
@@ -115,9 +149,9 @@
 
   function renderFallback() {
     var fallbackPosts = [
-      { title: "Introduction", link: "https://aminmyhead.substack.com/", readTime: 3, formattedDate: "Jan 1, 2024" },
-      { title: "Supercharge your intern experience", link: "https://aminmyhead.substack.com/", readTime: 5, formattedDate: "Feb 15, 2024" },
-      { title: "Why working at a Startup should be a priority", link: "https://aminmyhead.substack.com/", readTime: 6, formattedDate: "Mar 10, 2024" }
+      { title: "Introduction", link: "https://aminmyhead.substack.com/", readTime: 3, formattedDate: "Jan 1, 2024", pubDate: "2024-01-01" },
+      { title: "Supercharge your intern experience", link: "https://aminmyhead.substack.com/", readTime: 5, formattedDate: "Feb 15, 2024", pubDate: "2024-02-15" },
+      { title: "Why working at a Startup should be a priority", link: "https://aminmyhead.substack.com/", readTime: 6, formattedDate: "Mar 10, 2024", pubDate: "2024-03-10" }
     ];
 
     var homeContainer = document.getElementById("substack-home-preview");
@@ -136,15 +170,7 @@
     }
 
     if (blogContainer) {
-      var html = "";
-      for (var i = 0; i < fallbackPosts.length; i++) {
-        var p = fallbackPosts[i];
-        html += '<a href="' + p.link + '" target="_blank" rel="noopener" class="blog-list-item">';
-        html += '<span class="blog-list-title">' + p.title + '</span>';
-        html += '<span class="blog-list-meta">' + p.formattedDate + ' · ' + p.readTime + ' min read</span>';
-        html += '</a>';
-      }
-      blogContainer.innerHTML = html;
+      renderBlogGrid(blogContainer, fallbackPosts);
     }
   }
 
