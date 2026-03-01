@@ -95,10 +95,16 @@
 
   function renderHomePreview(container, posts) {
     if (!container || !posts.length) return;
+    
+    // Sort posts by date (newest first)
+    var sortedPosts = posts.slice().sort(function(a, b) {
+      return new Date(b.pubDate) - new Date(a.pubDate);
+    });
+    
     var html = "";
-    var limit = Math.min(5, posts.length);
+    var limit = Math.min(3, sortedPosts.length);
     for (var i = 0; i < limit; i++) {
-      var p = posts[i];
+      var p = sortedPosts[i];
       html += '<a href="' + p.link + '" target="_blank" rel="noopener" class="blog-list-item">';
       html += '<span class="blog-list-title">' + (p.title || "").replace(/</g, "&lt;") + '</span>';
       html += '<span class="blog-list-meta">' + p.readTime + ' min read</span>';
