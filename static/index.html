@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Varun Amin</title>
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg">
   <!-- Preconnect to external domains for faster loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,52 +50,41 @@
       <!-- Hero -->
       <section class="hero">
         <h1><span>Hey</span><span>I'm Varun 👋🏾</span></h1>
+        <p class="hero-subtitle">A consultant, writer and traveller, based in Sydney.</p>
       </section>
 
-      <!-- Rotating Photo Panel -->
+      <!-- Rotating Photo Panel - Framer style multi-image carousel -->
       <section class="photo-carousel-section">
         <div class="photo-carousel" id="photo-carousel">
           <button class="carousel-nav prev" aria-label="Previous slide">&#8249;</button>
           <button class="carousel-nav next" aria-label="Next slide">&#8250;</button>
           <div class="carousel-track" id="carousel-track">
-            <div class="carousel-slide active">
+            <div class="carousel-slide">
               <img src="images/france/paris-2.jpeg" alt="Sunset at the Eiffel Tower" fetchpriority="high">
-              <div class="carousel-caption">
-                <p class="carousel-location">Paris, France</p>
-                <p class="carousel-title">Sunset at the Eiffel Tower</p>
-              </div>
             </div>
             <div class="carousel-slide">
               <img src="images/usa/newyork2.jpeg" alt="Manhattan Bridge from Dumbo" loading="lazy">
-              <div class="carousel-caption">
-                <p class="carousel-location">New York, USA</p>
-                <p class="carousel-title">Manhattan Bridge from Dumbo</p>
-              </div>
             </div>
             <div class="carousel-slide">
               <img src="images/iceland/jökulsárlón (1).jpeg" alt="Jökulsárlón glacial lagoon" loading="lazy">
-              <div class="carousel-caption">
-                <p class="carousel-location">Jökulsárlón, Iceland</p>
-                <p class="carousel-title">Jökulsárlón Glacial Lagoon</p>
-              </div>
             </div>
             <div class="carousel-slide">
               <img src="images/indonesia/kelingking-beach.jpeg" alt="Kelingking Beach" loading="lazy">
-              <div class="carousel-caption">
-                <p class="carousel-location">Nusa Penida, Indonesia</p>
-                <p class="carousel-title">Kelingking Beach</p>
-              </div>
             </div>
             <div class="carousel-slide">
               <img src="images/italy/venice-1.jpg" alt="Gondolas in Venice" loading="lazy">
-              <div class="carousel-caption">
-                <p class="carousel-location">Venice, Italy</p>
-                <p class="carousel-title">Gondolas in Venice</p>
-              </div>
+            </div>
+            <div class="carousel-slide">
+              <img src="images/japan/kyoto2.jpeg" alt="Fushimi Inari Taisha" loading="lazy">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/uk/london.jpeg" alt="Tower Bridge London" loading="lazy">
+            </div>
+            <div class="carousel-slide">
+              <img src="images/singapore/singapore-2.jpeg" alt="Singapore Skyline" loading="lazy">
             </div>
           </div>
         </div>
-        <div class="carousel-dots" id="carousel-dots"></div>
       </section>
 
       <!-- Recently Published Posts -->
@@ -195,7 +185,10 @@
     <!-- Footer -->
     <footer class="site-footer">
       <div class="footer-inner">
-        <p class="footer-logo">VARUN AMIN</p>
+        <div class="footer-logo">
+          <img src="images/logo.svg" alt="" class="footer-logo-img">
+          <span>VARUN AMIN</span>
+        </div>
         <nav class="footer-nav">
           <a href="index.html">Home</a>
           <a href="about.html">About Me</a>
@@ -225,118 +218,124 @@
       nav.classList.toggle('open', !open);
     }
 
-    // Photo Carousel with dynamic Ken Burns effect
+    // Photo Carousel - Framer style horizontal scroll
     (function() {
       const track = document.getElementById('carousel-track');
       const slides = track.querySelectorAll('.carousel-slide');
-      const dotsContainer = document.getElementById('carousel-dots');
       const prevBtn = document.querySelector('.carousel-nav.prev');
       const nextBtn = document.querySelector('.carousel-nav.next');
-      let currentSlide = 0;
+      
+      let currentPosition = 0;
+      let isDragging = false;
+      let startX = 0;
+      let scrollLeft = 0;
       let autoplayInterval;
+      let autoplayDirection = 1;
 
-      // Create dots
-      slides.forEach((_, i) => {
-        const dot = document.createElement('button');
-        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-        dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-        dot.addEventListener('click', () => {
-          stopAutoplay();
-          goToSlide(i);
-          startAutoplay();
-        });
-        dotsContainer.appendChild(dot);
+      function getSlideWidth() {
+        const slide = slides[0];
+        const gap = window.innerWidth >= 768 ? 24 : 16;
+        return slide.offsetWidth + gap;
+      }
+
+      function getMaxScroll() {
+        const containerWidth = track.parentElement.offsetWidth;
+        const trackWidth = slides.length * getSlideWidth();
+        return Math.max(0, trackWidth - containerWidth);
+      }
+
+      function setPosition(pos) {
+        currentPosition = Math.max(0, Math.min(pos, getMaxScroll()));
+        track.style.transform = 'translateX(' + (-currentPosition) + 'px)';
+      }
+
+      function scrollBySlides(count) {
+        const slideWidth = getSlideWidth();
+        setPosition(currentPosition + (slideWidth * count));
+      }
+
+      // Navigation buttons
+      prevBtn.addEventListener('click', () => {
+        stopAutoplay();
+        scrollBySlides(-1);
+        startAutoplay();
       });
 
-      const dots = dotsContainer.querySelectorAll('.carousel-dot');
+      nextBtn.addEventListener('click', () => {
+        stopAutoplay();
+        scrollBySlides(1);
+        startAutoplay();
+      });
 
-      function goToSlide(index) {
-        // Remove active from current slide
-        slides[currentSlide].classList.remove('active');
-        
-        currentSlide = index;
-        track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
-        
-        // Add active to new slide (triggers Ken Burns effect)
-        slides[currentSlide].classList.add('active');
-        
-        dots.forEach((dot, i) => {
-          dot.classList.toggle('active', i === currentSlide);
-        });
-      }
+      // Mouse drag support
+      track.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.pageX;
+        scrollLeft = currentPosition;
+        stopAutoplay();
+      });
 
-      function nextSlide() {
-        goToSlide((currentSlide + 1) % slides.length);
-      }
+      document.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        const x = e.pageX;
+        const walk = (startX - x) * 1.5;
+        setPosition(scrollLeft + walk);
+      });
 
-      function prevSlide() {
-        goToSlide((currentSlide - 1 + slides.length) % slides.length);
+      document.addEventListener('mouseup', () => {
+        if (isDragging) {
+          isDragging = false;
+          startAutoplay();
+        }
+      });
+
+      // Touch support
+      let touchStartX = 0;
+      let touchScrollLeft = 0;
+
+      track.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].pageX;
+        touchScrollLeft = currentPosition;
+        stopAutoplay();
+      }, { passive: true });
+
+      track.addEventListener('touchmove', (e) => {
+        const x = e.touches[0].pageX;
+        const walk = (touchStartX - x) * 1.2;
+        setPosition(touchScrollLeft + walk);
+      }, { passive: true });
+
+      track.addEventListener('touchend', () => {
+        startAutoplay();
+      }, { passive: true });
+
+      // Auto-scroll animation (slow continuous scroll like Framer)
+      function autoScroll() {
+        const maxScroll = getMaxScroll();
+        
+        if (currentPosition >= maxScroll) {
+          autoplayDirection = -1;
+        } else if (currentPosition <= 0) {
+          autoplayDirection = 1;
+        }
+        
+        setPosition(currentPosition + (autoplayDirection * 0.5));
       }
 
       function startAutoplay() {
-        autoplayInterval = setInterval(nextSlide, 5000);
+        if (autoplayInterval) clearInterval(autoplayInterval);
+        autoplayInterval = setInterval(autoScroll, 30);
       }
 
       function stopAutoplay() {
         clearInterval(autoplayInterval);
       }
 
-      // Navigation buttons
-      prevBtn.addEventListener('click', () => {
-        stopAutoplay();
-        prevSlide();
-        startAutoplay();
-      });
-
-      nextBtn.addEventListener('click', () => {
-        stopAutoplay();
-        nextSlide();
-        startAutoplay();
-      });
-
-      // Touch/swipe support
-      let touchStartX = 0;
-      let touchEndX = 0;
-
-      track.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-        stopAutoplay();
-      }, { passive: true });
-
-      track.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-        startAutoplay();
-      }, { passive: true });
-
-      function handleSwipe() {
-        const diff = touchStartX - touchEndX;
-        if (Math.abs(diff) > 50) {
-          if (diff > 0) {
-            nextSlide();
-          } else {
-            prevSlide();
-          }
-        }
-      }
-
       // Pause on hover
       const carousel = document.getElementById('photo-carousel');
       carousel.addEventListener('mouseenter', stopAutoplay);
       carousel.addEventListener('mouseleave', startAutoplay);
-
-      // Keyboard navigation
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight') {
-          stopAutoplay();
-          nextSlide();
-          startAutoplay();
-        } else if (e.key === 'ArrowLeft') {
-          stopAutoplay();
-          prevSlide();
-          startAutoplay();
-        }
-      });
 
       startAutoplay();
     })();

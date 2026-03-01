@@ -1,11 +1,49 @@
 (function () {
   var feedUrl = "https://aminmyhead.substack.com/feed";
+  var CACHE_KEY = "substack_posts_cache";
+  var CACHE_DURATION = 1000 * 60 * 30; // 30 minutes
   
   var proxies = [
-    "https://api.allorigins.win/raw?url=",
     "https://corsproxy.io/?",
+    "https://api.allorigins.win/raw?url=",
     "https://api.codetabs.com/v1/proxy?quest="
   ];
+
+  // Load cached posts immediately for instant display
+  function loadFromCache() {
+    try {
+      var cached = localStorage.getItem(CACHE_KEY);
+      if (cached) {
+        var data = JSON.parse(cached);
+        if (data.posts && data.posts.length > 0) {
+          renderHomePreview(document.getElementById("substack-home-preview"), data.posts);
+          renderBlogGrid(document.getElementById("substack-blog-grid"), data.posts);
+          return data;
+        }
+      }
+    } catch (e) {}
+    return null;
+  }
+
+  function saveToCache(posts) {
+    try {
+      localStorage.setItem(CACHE_KEY, JSON.stringify({
+        posts: posts,
+        timestamp: Date.now()
+      }));
+    } catch (e) {}
+  }
+
+  function isCacheValid() {
+    try {
+      var cached = localStorage.getItem(CACHE_KEY);
+      if (cached) {
+        var data = JSON.parse(cached);
+        return (Date.now() - data.timestamp) < CACHE_DURATION;
+      }
+    } catch (e) {}
+    return false;
+  }
 
   function stripCdata(s) {
     return (s || "").replace(/<!\[CDATA\[|\]\]>/g, "").trim();
@@ -120,13 +158,19 @@
 
   function tryFetch(proxyIndex) {
     if (proxyIndex >= proxies.length) {
-      renderFallback();
+      // Only show fallback if we have no cached data
+      if (!loadFromCache()) {
+        renderFallback();
+      }
       return;
     }
     
     var proxyUrl = proxies[proxyIndex] + encodeURIComponent(feedUrl);
     
-    fetch(proxyUrl)
+    fetch(proxyUrl, { 
+      method: 'GET',
+      headers: { 'Accept': 'application/rss+xml, application/xml, text/xml' }
+    })
       .then(function (r) {
         if (!r.ok) throw new Error("HTTP " + r.status);
         return r.text();
@@ -139,6 +183,8 @@
         if (posts.length === 0) {
           throw new Error("No posts found");
         }
+        // Save to cache for next time
+        saveToCache(posts);
         renderHomePreview(document.getElementById("substack-home-preview"), posts);
         renderBlogGrid(document.getElementById("substack-blog-grid"), posts);
       })
@@ -174,5 +220,11 @@
     }
   }
 
-  tryFetch(0);
+  // Load cached data immediately for instant display
+  var cachedData = loadFromCache();
+  
+  // Fetch fresh data in background (skip if cache is still valid)
+  if (!isCacheValid()) {
+    tryFetch(0);
+  }
 })();
