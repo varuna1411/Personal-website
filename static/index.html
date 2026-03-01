@@ -54,26 +54,28 @@
       <!-- Rotating Photo Panel -->
       <section class="photo-carousel-section">
         <div class="photo-carousel" id="photo-carousel">
+          <button class="carousel-nav prev" aria-label="Previous slide">&#8249;</button>
+          <button class="carousel-nav next" aria-label="Next slide">&#8250;</button>
           <div class="carousel-track" id="carousel-track">
-            <div class="carousel-slide">
-              <img src="images/france/paris-2.jpeg" alt="Eiffel Tower" fetchpriority="high">
+            <div class="carousel-slide active">
+              <img src="images/france/paris-2.jpeg" alt="Sunset at the Eiffel Tower" fetchpriority="high">
               <div class="carousel-caption">
                 <p class="carousel-location">Paris, France</p>
                 <p class="carousel-title">Sunset at the Eiffel Tower</p>
               </div>
             </div>
             <div class="carousel-slide">
-              <img src="images/usa/newyork2.jpeg" alt="Manhattan Bridge" loading="lazy">
+              <img src="images/usa/newyork2.jpeg" alt="Manhattan Bridge from Dumbo" loading="lazy">
               <div class="carousel-caption">
                 <p class="carousel-location">New York, USA</p>
                 <p class="carousel-title">Manhattan Bridge from Dumbo</p>
               </div>
             </div>
             <div class="carousel-slide">
-              <img src="images/iceland/jökulsárlón (1).jpeg" alt="Jökulsárlón" loading="lazy">
+              <img src="images/iceland/jökulsárlón (1).jpeg" alt="Jökulsárlón glacial lagoon" loading="lazy">
               <div class="carousel-caption">
                 <p class="carousel-location">Jökulsárlón, Iceland</p>
-                <p class="carousel-title">Jökulsárlón glacial lagoon</p>
+                <p class="carousel-title">Jökulsárlón Glacial Lagoon</p>
               </div>
             </div>
             <div class="carousel-slide">
@@ -84,7 +86,7 @@
               </div>
             </div>
             <div class="carousel-slide">
-              <img src="images/italy/venice-1.jpg" alt="Venice" loading="lazy">
+              <img src="images/italy/venice-1.jpg" alt="Gondolas in Venice" loading="lazy">
               <div class="carousel-caption">
                 <p class="carousel-location">Venice, Italy</p>
                 <p class="carousel-title">Gondolas in Venice</p>
@@ -190,17 +192,6 @@
       </section>
     </main>
 
-    <!-- Lightbox modal -->
-    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
-      <button class="lightbox-close" aria-label="Close">&times;</button>
-      <button class="lightbox-prev" aria-label="Previous photo">&#8249;</button>
-      <button class="lightbox-next" aria-label="Next photo">&#8250;</button>
-      <div class="lightbox-content">
-        <img src="" alt="" id="lightbox-img">
-        <div class="lightbox-caption" id="lightbox-caption"></div>
-      </div>
-    </div>
-
     <!-- Footer -->
     <footer class="site-footer">
       <div class="footer-inner">
@@ -234,11 +225,13 @@
       nav.classList.toggle('open', !open);
     }
 
-    // Photo Carousel
+    // Photo Carousel with dynamic Ken Burns effect
     (function() {
       const track = document.getElementById('carousel-track');
       const slides = track.querySelectorAll('.carousel-slide');
       const dotsContainer = document.getElementById('carousel-dots');
+      const prevBtn = document.querySelector('.carousel-nav.prev');
+      const nextBtn = document.querySelector('.carousel-nav.next');
       let currentSlide = 0;
       let autoplayInterval;
 
@@ -247,15 +240,26 @@
         const dot = document.createElement('button');
         dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
         dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-        dot.addEventListener('click', () => goToSlide(i));
+        dot.addEventListener('click', () => {
+          stopAutoplay();
+          goToSlide(i);
+          startAutoplay();
+        });
         dotsContainer.appendChild(dot);
       });
 
       const dots = dotsContainer.querySelectorAll('.carousel-dot');
 
       function goToSlide(index) {
+        // Remove active from current slide
+        slides[currentSlide].classList.remove('active');
+        
         currentSlide = index;
         track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+        
+        // Add active to new slide (triggers Ken Burns effect)
+        slides[currentSlide].classList.add('active');
+        
         dots.forEach((dot, i) => {
           dot.classList.toggle('active', i === currentSlide);
         });
@@ -265,13 +269,30 @@
         goToSlide((currentSlide + 1) % slides.length);
       }
 
+      function prevSlide() {
+        goToSlide((currentSlide - 1 + slides.length) % slides.length);
+      }
+
       function startAutoplay() {
-        autoplayInterval = setInterval(nextSlide, 4000);
+        autoplayInterval = setInterval(nextSlide, 5000);
       }
 
       function stopAutoplay() {
         clearInterval(autoplayInterval);
       }
+
+      // Navigation buttons
+      prevBtn.addEventListener('click', () => {
+        stopAutoplay();
+        prevSlide();
+        startAutoplay();
+      });
+
+      nextBtn.addEventListener('click', () => {
+        stopAutoplay();
+        nextSlide();
+        startAutoplay();
+      });
 
       // Touch/swipe support
       let touchStartX = 0;
@@ -292,9 +313,9 @@
         const diff = touchStartX - touchEndX;
         if (Math.abs(diff) > 50) {
           if (diff > 0) {
-            goToSlide((currentSlide + 1) % slides.length);
+            nextSlide();
           } else {
-            goToSlide((currentSlide - 1 + slides.length) % slides.length);
+            prevSlide();
           }
         }
       }
@@ -303,6 +324,19 @@
       const carousel = document.getElementById('photo-carousel');
       carousel.addEventListener('mouseenter', stopAutoplay);
       carousel.addEventListener('mouseleave', startAutoplay);
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') {
+          stopAutoplay();
+          nextSlide();
+          startAutoplay();
+        } else if (e.key === 'ArrowLeft') {
+          stopAutoplay();
+          prevSlide();
+          startAutoplay();
+        }
+      });
 
       startAutoplay();
     })();
@@ -368,5 +402,15 @@
       });
     })();
   </script>
+  <!-- Lightbox modal (outside main-content for proper z-index) -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <button class="lightbox-prev" aria-label="Previous photo">&#8249;</button>
+    <button class="lightbox-next" aria-label="Next photo">&#8250;</button>
+    <div class="lightbox-content">
+      <img src="" alt="" id="lightbox-img">
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+  </div>
 </body>
 </html>
