@@ -1,5 +1,5 @@
 /* Varun Amin – Framer-inspired styles with LHS sidebar */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
 :root {
   --bg: #000000;
@@ -721,6 +721,24 @@ img { max-width: 100%; height: auto; display: block; }
   margin-top: 24px;
   font-size: 13px;
   color: var(--fg-subtle);
+}
+
+.load-more-btn {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 8px 20px;
+  background: var(--fg);
+  color: var(--bg);
+  border: none;
+  border-radius: 100px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.load-more-btn:hover {
+  opacity: 0.8;
 }
 
 /* Hide old header styles */
